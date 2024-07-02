@@ -1,7 +1,7 @@
 import express from 'express';
+import serverless from 'serverless-http';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use((request, response, next) => {
     request.clientIp = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
@@ -29,6 +29,5 @@ app.get('/api/hello', async (request, response) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;
+module.exports.handler = serverless(app);
