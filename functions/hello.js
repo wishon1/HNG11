@@ -28,7 +28,7 @@ app.get('/api/hello', async (request, response) => {
         const visitorName = request.query.visitor_name;
         const clientIp = request.clientIp;
 
-        const location = "New York";
+        const location = "Bayelsa";
         const temp = 11;
 
         const responseObj = {
